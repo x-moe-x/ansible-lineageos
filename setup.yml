@@ -5,3 +5,4 @@
   roles:
     - sdk
     - packages
+    - repo

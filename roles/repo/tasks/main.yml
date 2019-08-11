@@ -1,0 +1,20 @@
+---
+- name: create directories
+  file: path={{ item }} state=directory
+  with_items:
+    - ~/bin
+    - ~/android/lineage
+
+- name: install the repo command
+  get_url: url=https://storage.googleapis.com/git-repo-downloads/repo dest=~/bin/repo mode=0755
+
+- name: add repo directory to path
+  blockinfile:
+    path: ~/.profile
+    block: |
+      # set PATH so it includes user's private bin if it exists
+      if [ -d "$HOME/bin" ] ; then
+          PATH="$HOME/bin:$PATH"
+      fi
+
+- meta: reset_connection
