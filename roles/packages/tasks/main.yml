@@ -38,6 +38,12 @@
 
 # TODO for lineage os 13.0 we also need maven
 
+- name: init git 1/2
+  git_config: name=user.name scope=global value="{{ git_name }}"
+
+- name: init git 2/2
+  git_config: name=user.email scope=global value={{ git_email }}
+
 # TODO different versions of lineage os require different java versions
 # TODO openjdk 8 for LineageOS 14.1-15.1
 - name: install java
