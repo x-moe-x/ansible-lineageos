@@ -1,7 +1,7 @@
 ---
 - name: install unzip
   become: yes
-  apt: name=unzip
+  apt: name=unzip update_cache=yes
 
 - name: prepare filesystem
   file: path={{ sdk_download_path }} state=directory
