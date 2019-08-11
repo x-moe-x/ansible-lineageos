@@ -1,0 +1,43 @@
+---
+- name: install build packages
+  become: yes
+  apt:
+    name:
+      - bc
+      - bison
+      - build-essential
+      - ccache
+      - curl
+      - flex
+      - g++-multilib
+      - gcc-multilib
+      - git
+      - gnupg
+      - gperf
+      - imagemagick
+      - lib32ncurses5-dev
+      - lib32readline-dev
+      - lib32z1-dev
+      - liblz4-tool
+      - libncurses5-dev
+      - libsdl1.2-dev
+      - libssl-dev
+      - libwxgtk3.0-dev
+      - libxml2
+      - libxml2-utils
+      - lzop
+      - pngcrush
+      - rsync
+      - schedtool
+      - squashfs-tools
+      - xsltproc
+      - zip
+      - zlib1g-dev
+
+# TODO for lineage os 13.0 we also need maven
+
+# TODO different versions of lineage os require different java versions
+# TODO openjdk 8 for LineageOS 14.1-15.1
+- name: install java
+  become: yes
+  apt: name=openjdk-8-jdk
