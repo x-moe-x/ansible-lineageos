@@ -1,0 +1,24 @@
+---
+- name: install unzip
+  become: yes
+  apt: name=unzip update_cache=yes
+
+- name: prepare filesystem
+  file: path={{ sdk_download_path }} state=directory
+
+- name: download latest platform tools
+  get_url: url={{ sdk_platform_tools_url }} dest={{ sdk_download_path }}/{{ sdk_platform_tools_url | basename }}
+
+- name: unpack plactform tools
+  unarchive: src={{ sdk_download_path }}/{{ sdk_platform_tools_url | basename }} dest=~/ remote_src=yes
+
+- name: add adb and fastboot to PATH
+  blockinfile:
+    path: ~/.profile
+    block: |
+      # add Android SDK platform tools to path
+      if [ -d "$HOME/{{ sdk_platform_tools_path_name }}" ] ; then
+          PATH="$HOME/{{ sdk_platform_tools_path_name }}:$PATH"
+      fi
+
+- meta: reset_connection

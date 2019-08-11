@@ -1,0 +1,8 @@
+---
+- name: Prepare LineageOS build environment
+  hosts: all
+
+  roles:
+    - sdk
+    - packages
+    - repo
