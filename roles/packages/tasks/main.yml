@@ -19,6 +19,7 @@
       - lib32readline-dev
       - lib32z1-dev
       - liblz4-tool
+      - libffi-dev
       - libncurses5-dev
       - libsdl1.2-dev
       - libssl-dev
@@ -27,6 +28,7 @@
       - libxml2-utils
       - lzop
       - pngcrush
+      - python-dev
       - rsync
       - schedtool
       - squashfs-tools
