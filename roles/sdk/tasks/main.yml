@@ -15,6 +15,7 @@
 - name: add adb and fastboot to PATH
   blockinfile:
     path: ~/.profile
+    marker: "# {mark} ANSIBLE MANAGED SDK BLOCK -->"
     block: |
       # add Android SDK platform tools to path
       if [ -d "$HOME/{{ sdk_platform_tools_path_name }}" ] ; then
